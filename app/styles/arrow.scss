@@ -1,0 +1,75 @@
+$border_color : #d2d2d2;
+$arrow_color : white;
+
+$border_width : 1px;
+$arrow_width : 11px;
+$inner_width : $arrow_width - $border_width ;
+
+.arrow {
+	border-width:$arrow_width;
+	&,&:after{
+		width:0;
+		height:0;
+		position:absolute;
+		border-style: solid;
+		border-color:transparent;
+		display: block;
+		top: 0;
+		left: 0;
+	}
+	&:after{
+		content: "";
+		border-width: $inner_width;
+	}
+
+	&.left{
+		left: -$arrow_width;
+		border-left-width: 0;
+		border-right-color: $border_color;
+		&:after{
+			border-left-width: 0;
+			top: -$inner_width;
+			left: $border_width  ;
+			border-right-color:$arrow_color;
+		}
+	}
+
+	&.right{
+		left: auto;
+		right: -$arrow_width;
+		border-right-width: 0;
+		border-left-color: $border_color;
+		&:after{
+			border-right-width: 0;
+			top: -$inner_width;
+			left: -$arrow_width;
+			border-left-color:$arrow_color;
+		}
+	}
+
+	&.top{
+		top: -$arrow_width;
+		border-top-width : 0;
+		border-bottom-color: $border_color;
+		&:after{
+			border-top-width : 0;
+			top:  $border_width;
+			left: -$inner_width;
+			border-bottom-color:$arrow_color;
+		}
+	}
+
+	&.bottom{
+		top: auto;
+		bottom:-11px;
+		border-bottom-width: 0;
+		border-top-color: $border_color;
+		&:after{
+			border-bottom-width: 0;
+			top: -$arrow_width;
+			left: -$inner_width;
+			border-top-color:$arrow_color;
+		}
+	}
+}
+
